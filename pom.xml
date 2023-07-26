@@ -16,6 +16,10 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <mysql-connector.version>8.0.29</mysql-connector.version>
+        <mybatis-springboot.version>2.2.2</mybatis-springboot.version>
+        <mybatis-pagehelper-springboot.version>1.4.7</mybatis-pagehelper-springboot.version>
+        <hutool.version>5.8.9</hutool.version>
     </properties>
 
     <parent>
@@ -29,6 +33,10 @@
         <!-- Spring boot 起步依赖 start-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
@@ -40,12 +48,18 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
         <!--Spring boot 起步依赖 end-->
 
         <!-- 常用工具包 依赖 start -->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -53,5 +67,29 @@
         </dependency>
         <!-- 常用工具包 依赖 end-->
     </dependencies>
+
+    <!-- 子工程 依赖统一管理-->
+    <dependencyManagement>
+        <dependencies>
+            <!-- mysql 数据库驱动 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector.version}</version>
+            </dependency>
+            <!-- mybatis -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-springboot.version}</version>
+            </dependency>
+            <!-- mybatis pagehelper -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${mybatis-pagehelper-springboot.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
