@@ -20,6 +20,7 @@
         <mybatis-springboot.version>2.2.2</mybatis-springboot.version>
         <mybatis-pagehelper-springboot.version>1.4.7</mybatis-pagehelper-springboot.version>
         <hutool.version>5.8.9</hutool.version>
+        <springfox-swagger.version>3.0.0</springfox-swagger.version>
     </properties>
 
     <parent>
@@ -89,6 +90,14 @@
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
                 <version>${mybatis-pagehelper-springboot.version}</version>
             </dependency>
+
+            <!--springfox swagger官方Starter-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${springfox-swagger.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
